@@ -129,3 +129,16 @@ This project strengthened skills in:
 * Financial analytics
 * Data visualization tools
 * Exportable reports
+
+
+## Database Deployment
+
+The original project was deployed using a cloud-hosted MySQL instance on Aiven.
+
+Since the free-tier instance is no longer active, the repository includes:
+
+- Complete database schema
+- Trigger definitions
+- Sample data scripts
+
+allowing the database to be recreated locally in any MySQL environment.
