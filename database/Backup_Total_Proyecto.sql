@@ -182,7 +182,8 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ONLY_FULL_GROUP_BY,ANSI,STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`avnadmin`@`%`*/ /*!50003 TRIGGER `TRG_AUDIT_INSERT_TRANSACCION` AFTER INSERT ON `lp_transaccion` FOR EACH ROW INSERT INTO lp_auditoria (tabla_afectada, operacion, usuario_db, fecha, dato_nuevo)
+/*!50003 CREATE*/ /*!50017 DEFINER=`avnadmin`@`%`*/ /*!50003 TRIGGER `TRG_AUDIT_INSERT_TRANSACCION` AFTER INSERT ON `lp_transaccion` FOR EACH ROW INSERT INTO lp_auditoria (tabla_afectada, operacion, usuario_db, fecha, dato_nuevo)
+
 VALUES ('lp_transaccion', 'INSERT', USER(), NOW(), CONCAT('Monto: ', NEW.monto)) */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -198,7 +199,8 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ONLY_FULL_GROUP_BY,ANSI,STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`avnadmin`@`%`*/ /*!50003 TRIGGER `TRG_AUDIT_UPDATE_TRANSACCION` AFTER UPDATE ON `lp_transaccion` FOR EACH ROW INSERT INTO lp_auditoria (tabla_afectada, operacion, usuario_db, fecha, dato_anterior, dato_nuevo)
+/*!50003 CREATE*/ /*!50017 DEFINER=`avnadmin`@`%`*/ /*!50003 TRIGGER `TRG_AUDIT_UPDATE_TRANSACCION` AFTER UPDATE ON `lp_transaccion` FOR EACH ROW INSERT INTO lp_auditoria (tabla_afectada, operacion, usuario_db, fecha, dato_anterior, dato_nuevo)
+
 VALUES ('lp_transaccion', 'UPDATE', USER(), NOW(), CONCAT('Ant: ', OLD.monto), CONCAT('Nuevo: ', NEW.monto)) */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -214,13 +216,20 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ONLY_FULL_GROUP_BY,ANSI,STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`avnadmin`@`%`*/ /*!50003 TRIGGER `tr_auditoria_delete_transaccion` BEFORE DELETE ON `lp_transaccion` FOR EACH ROW INSERT INTO lp_auditoria (tabla_afectada, operacion, usuario_db, dato_anterior, dato_nuevo)
-VALUES (
-    'lp_transaccion',
-    'DELETE',
-    USER(),
-    CONCAT('ID: ', OLD.id_transaccion, ' | Monto: ', OLD.monto, ' | Desc: ', OLD.descripcion, ' | Tipo: ', OLD.tipo),
-    NULL
+/*!50003 CREATE*/ /*!50017 DEFINER=`avnadmin`@`%`*/ /*!50003 TRIGGER `tr_auditoria_delete_transaccion` BEFORE DELETE ON `lp_transaccion` FOR EACH ROW INSERT INTO lp_auditoria (tabla_afectada, operacion, usuario_db, dato_anterior, dato_nuevo)
+
+VALUES (
+
+    'lp_transaccion',
+
+    'DELETE',
+
+    USER(),
+
+    CONCAT('ID: ', OLD.id_transaccion, ' | Monto: ', OLD.monto, ' | Desc: ', OLD.descripcion, ' | Tipo: ', OLD.tipo),
+
+    NULL
+
 ) */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
