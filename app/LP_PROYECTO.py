@@ -6,14 +6,14 @@ import pandas as pd
 st.set_page_config(page_title="Gestor de Gastos", layout="wide")
 st.title("💰 Mi Aplicación de Gastos Personales (CRUD)")
 
-# Conexión directa a tu base de datos en la nube (Aiven)
+
 def conectar_base_datos():
     return pymysql.connect(
-        host="mysql-12d91c58-neutronwar34-47fc.a.aivencloud.com",
+        host="mysql-12d91c58-neutronwar33-47fc.a.aivencloud.com",
         port=23463,
         user="avnadmin",
-        password="AVNS_Vny8OnT3dIlMBj9rETO",  # <- Corregido: Una sola 'A' al principio
-        database="LP_PROYECTO",                 # <- Corregido: Cambiado a 'defaultdb'
+        password="AVNS_Vny8OnT3dIlMBj9rETO",  
+        database="LP_PROYECTO",                
         autocommit=True
     )
 
