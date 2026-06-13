@@ -117,3 +117,49 @@ personal-finance-management-system
     ├── principal2.png
     ├── audit.png
     └── entity_relationship_diagram.png
+
+
+```
+
+---
+# Aprendizajes Obtenidos
+
+Este proyecto permitió fortalecer conocimientos en:
+
+- Modelado relacional
+- Diseño de bases de datos normalizadas
+- Desarrollo SQL
+- Implementación de triggers
+- Auditoría de bases de datos
+- Despliegue de bases de datos en la nube
+- Desarrollo de aplicaciones con Python
+- Integridad y consistencia de datos
+- Posibles Mejoras Futuras
+- Sistema de autenticación y autorización
+- Planeación presupuestal avanzada
+- Dashboards interactivos
+- Analítica financiera
+- Visualización avanzada de datos
+- Exportación de reportes
+- Despliegue de la Base de Datos
+
+El proyecto fue desplegado originalmente utilizando una instancia MySQL alojada en Aiven.
+
+Debido a que la instancia gratuita ya no se encuentra activa, el repositorio incluye:
+
+- Esquema completo de la base de datos
+- Scripts de creación
+- Definiciones de triggers
+- Datos de ejemplo
+
+permitiendo reconstruir el entorno localmente en cualquier instalación de MySQL.
+
+Autor
+
+**Jacobo López**
+
+Estudiante de Matemáticas
+
+Fundación Universitaria Konrad Lorenz
+
+Bogotá, Colombia
