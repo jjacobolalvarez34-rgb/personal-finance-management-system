@@ -154,6 +154,8 @@ Debido a que la instancia gratuita ya no se encuentra activa, el repositorio inc
 
 permitiendo reconstruir el entorno localmente en cualquier instalación de MySQL.
 
+---
+
 Autor
 
 **Jacobo López**
